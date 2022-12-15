@@ -80,5 +80,8 @@ ul {
   font-size: 50px;
   color: rgb(45, 153, 224);
 }
-
+.aLink{
+  text-decoration: none;
+  color: blue;
+}
 
