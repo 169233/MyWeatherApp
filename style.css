@@ -80,8 +80,12 @@ ul {
   font-size: 50px;
   color: rgb(45, 153, 224);
 }
-.aLink{
+.aLink {
   text-decoration: none;
   color: blue;
 }
-
+.conecting {
+  margin: 0 auto;
+  display: block;
+  max-width: 60%;
+}
