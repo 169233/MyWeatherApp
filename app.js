@@ -47,9 +47,11 @@ let showFullDate=document.querySelector("#date")
 showFullDate.innerHTML=`${numberDate}. ${month} ${year}`
 
 function currentForecast(response){
-  let temperature = Math.round(response.data.main.temp)
+  let temperature = Math.round(celsiumTemperature)
   let showTemp = document.querySelector("#celsium")
-  showTemp.innerHTML=`${temperature}°C`
+  showTemp.innerHTML=`${temperature}`
+  
+  celsiumTemperature=response.data.main.temp
 
   let headline = response.data.name
   let head=document.querySelector("h1")
@@ -110,10 +112,33 @@ let unit = "metric";
 let apiKey = "78fc98c085614cc01c7a0b894f6604c6";
 let mainUpi = "https://api.openweathermap.org/data/2.5/weather?"
 
+
+
+function showFahrenheitTemp(event){
+  event.preventDefault()
+  let temperatureElement=document.querySelector("#celsium")
+  let changeUnit=(9*celsiumTemperature /5)+32
+  temperatureElement.innerHTML=Math.round(changeUnit)
+  }
+
+function showCelsiumTemp(event){
+  event.preventDefault()
+let temperatureElement=document.querySelector("#celsium")
+temperatureElement.innerHTML=Math.round(celsiumTemperature)
+}  
+
+let coverUnit= document.querySelector("#fahrenheitLink")
+coverUnit.addEventListener("click",showFahrenheitTemp)
+
+let recoverUnit=document.querySelector("#celsiumLink")
+recoverUnit.addEventListener("click",showCelsiumTemp)
+
+
+
+
+let celsiumTemperature=null
+
 searchCity("Prague")
-
-
-
 
 
 

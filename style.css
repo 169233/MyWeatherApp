@@ -43,6 +43,10 @@ i {
 .celsium:hover {
   cursor: pointer;
 }
+a {
+  text-decoration: none;
+  color: blueviolet;
+}
 .fahrenheit {
   color: blueviolet;
   transition: all 150ms ease-in-out;
