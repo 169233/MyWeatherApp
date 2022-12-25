@@ -117,14 +117,18 @@ let mainUpi = "https://api.openweathermap.org/data/2.5/weather?"
 function showFahrenheitTemp(event){
   event.preventDefault()
   let temperatureElement=document.querySelector("#celsium")
+  celsiumLink.classList.remove("active")
+  fahrenheitLink.classList.add("active")
   let changeUnit=(9*celsiumTemperature /5)+32
   temperatureElement.innerHTML=Math.round(changeUnit)
   }
 
 function showCelsiumTemp(event){
   event.preventDefault()
-let temperatureElement=document.querySelector("#celsium")
-temperatureElement.innerHTML=Math.round(celsiumTemperature)
+  celsiumLink.classList.add("active")
+  fahrenheitLink.classList.remove("active")
+  let temperatureElement=document.querySelector("#celsium")
+  temperatureElement.innerHTML=Math.round(celsiumTemperature)
 }  
 
 let coverUnit= document.querySelector("#fahrenheitLink")

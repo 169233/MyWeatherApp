@@ -1,6 +1,44 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+input {
+  margin: 10px 0;
+  border: solid 1px blue;
+  color: blue;
+  padding: 5px 10px;
+}
+
+button {
+  margin: 10px 0;
+  padding: 5px 10px;
+}
+
+h1 {
+  margin: 0;
+}
+
+i {
+  font-size: 50px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: none;
+  cursor: default;
+  color: rgb(0, 0, 0);
+}
+.active:hover {
+  text-decoration: none;
+}
+
 .container {
   display: block;
   max-width: 60%;
@@ -8,55 +46,19 @@ body {
   margin-bottom: 20px;
   border: solid 2px blue;
   border-radius: 8px;
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgb(239, 246, 249) 0%,
-    rgb(206, 239, 253) 90%
-  );
 }
-input {
-  margin: 10px 0;
-  border: solid 1px blue;
-  color: blue;
-  padding: 5px 10px;
-}
-button {
-  margin: 10px 0;
-  padding: 5px 10px;
-}
-h1 {
-  margin: 0;
-}
-i {
-  font-size: 50px;
-}
+
 .col.main {
   text-align: center;
   font-weight: bold;
   font-size: 24px;
   color: blue;
 }
-.celsium {
-  color: blue;
-  transition: all 150ms ease-in-out;
+
+.unit {
+  font-size: 48px;
 }
-.celsium:hover {
-  cursor: pointer;
-}
-a {
-  text-decoration: none;
-  color: blueviolet;
-}
-.fahrenheit {
-  color: blueviolet;
-  transition: all 150ms ease-in-out;
-}
-.fahrenheit:hover {
-  cursor: pointer;
-}
-ul {
-  list-style: none;
-}
+
 .col {
   text-align: right;
   color: blue;
