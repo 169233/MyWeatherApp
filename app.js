@@ -71,9 +71,9 @@ function currentForecast(response){
   let showCountry=document.querySelector("#country")
   showCountry.innerHTML=` ${country}`
 
-   let icon=response.data.weather[0].icon
+  let icon=response.data.weather[0].icon
   let showIcon=document.querySelector("#icon")
-  showIcon.innerHTML=`<img src="http://openweathermap.org/img/w/${icon}.png"/src>`;
+  showIcon.innerHTML=`<img src="http://openweathermap.org/img/wn/${icon}@2x.png"/src>`;
 }
 
 function searchCity(city){
