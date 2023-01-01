@@ -65,9 +65,7 @@ a {
   font-size: 18px;
   font-weight: bold;
 }
-.col-1 {
-  display: block;
-  margin: 0 auto;
+.weatherForecast {
   text-align: center;
   font-weight: bold;
   margin-top: 10px;
