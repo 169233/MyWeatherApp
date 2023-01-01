@@ -90,9 +90,6 @@ let city = input.value
 searchCity(city);
 }
 
-let form=document.querySelector("#enterCity")
-form.addEventListener("submit",showCity)
-
 function handlePosition(position){
 let lat = position.coords.latitude
 let lon=position.coords.longitude
@@ -104,15 +101,6 @@ function currentLocation(event){
 event.preventDefault()
 navigator.geolocation.getCurrentPosition(handlePosition)
 }
-
-let button=document.querySelector("#location")
-button.addEventListener("click",currentLocation)
-
-let unit = "metric";
-let apiKey = "78fc98c085614cc01c7a0b894f6604c6";
-let mainUpi = "https://api.openweathermap.org/data/2.5/weather?"
-
-
 
 function showFahrenheitTemp(event){
   event.preventDefault()
@@ -131,14 +119,22 @@ function showCelsiumTemp(event){
   temperatureElement.innerHTML=Math.round(celsiumTemperature)
 }  
 
+let form=document.querySelector("#enterCity")
+form.addEventListener("submit",showCity)
+
+let button=document.querySelector("#location")
+button.addEventListener("click",currentLocation)
+
+let unit = "metric";
+let apiKey = "78fc98c085614cc01c7a0b894f6604c6";
+let mainUpi = "https://api.openweathermap.org/data/2.5/weather?"
+
+
 let coverUnit= document.querySelector("#fahrenheitLink")
 coverUnit.addEventListener("click",showFahrenheitTemp)
 
 let recoverUnit=document.querySelector("#celsiumLink")
 recoverUnit.addEventListener("click",showCelsiumTemp)
-
-
-
 
 let celsiumTemperature=null
 
