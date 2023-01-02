@@ -123,37 +123,24 @@ function nextForecast(){
   let forecast=document.querySelector("#nextForecast")
   let insideHTML=`<div class="row">`
 let weekday = [
-        "Sunday",
-        "Monday",
+                "Monday",
         "Tuesday",
         "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
-  weekday.forEach(function(weekday){
- 
-  insideHTML=insideHTML + `
+             ];
+  weekday.forEach(function(day){
+   insideHTML=insideHTML + `
         <div class="col-2">
           <div>
-          Mo
+          ${day}
           </div>
          <i class="fa-solid fa-cloud-showers-heavy"></i>
          <div class="tempForecast">4<span> °C</span></div>
         </div>
         `;
-  insideHTML=`<div class="row">`
-  insideHTML=insideHTML + `
-        <div class="col-2">
-          <div>
-          Mo
-          </div>
-         <i class="fa-solid fa-cloud-showers-heavy"></i>
-         <div class="tempForecast">4<span> °C</span></div>
-        </div>
-        `;
-  insideHTML=insideHTML + `</div>`;
-  forecast.innerHTML=insideHTML;)
+      }) ;           
+    insideHTML=insideHTML + `</div>`;
+  forecast.innerHTML=insideHTML;
+  console.log(insideHTML)
 }
  
 
