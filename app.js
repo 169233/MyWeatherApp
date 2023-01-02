@@ -117,7 +117,47 @@ function showCelsiumTemp(event){
   fahrenheitLink.classList.remove("active")
   let temperatureElement=document.querySelector("#celsium")
   temperatureElement.innerHTML=Math.round(celsiumTemperature)
-}  
+} 
+
+function nextForecast(){
+  let forecast=document.querySelector("#nextForecast")
+  let insideHTML=`<div class="row">`
+let weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+  weekday.forEach(function(weekday){
+ 
+  insideHTML=insideHTML + `
+        <div class="col-2">
+          <div>
+          Mo
+          </div>
+         <i class="fa-solid fa-cloud-showers-heavy"></i>
+         <div class="tempForecast">4<span> °C</span></div>
+        </div>
+        `;
+  insideHTML=`<div class="row">`
+  insideHTML=insideHTML + `
+        <div class="col-2">
+          <div>
+          Mo
+          </div>
+         <i class="fa-solid fa-cloud-showers-heavy"></i>
+         <div class="tempForecast">4<span> °C</span></div>
+        </div>
+        `;
+  insideHTML=insideHTML + `</div>`;
+  forecast.innerHTML=insideHTML;)
+}
+ 
+
+
 
 let form=document.querySelector("#enterCity")
 form.addEventListener("submit",showCity)
@@ -139,7 +179,7 @@ recoverUnit.addEventListener("click",showCelsiumTemp)
 let celsiumTemperature=null
 
 searchCity("Prague")
-
+nextForecast()
 
 
 

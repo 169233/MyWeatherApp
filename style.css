@@ -74,12 +74,12 @@ a {
   font-size: 20px;
   transition: all 150ms ease-in-out;
 }
-.col-1:hover {
-  cursor: pointer;
-}
+
 .fa-solid.fa-cloud-showers-heavy {
   font-size: 50px;
   color: rgb(45, 153, 224);
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .fa-solid.fa-cloud-showers-water {
   font-size: 50px;
