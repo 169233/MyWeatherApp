@@ -106,6 +106,7 @@ navigator.geolocation.getCurrentPosition(handlePosition)
 }
 
 function getForecast(coordinate){
+  let apiNewKey="ae7e0abf4061e6a942ac7ca42d64e461"
  let apiKeyFore="f8e6a9e3d6fde87cb38868da460b1371"  
  let apiUrlForecast=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinate.lat}&lon=${coordinate.lon}&appid=${apiKeyFore}&units=${unit}`
 axios.get(apiUrlForecast).then(nextForecast)
