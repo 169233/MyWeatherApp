@@ -76,12 +76,16 @@ function currentForecast(response){
   let icon=response.data.weather[0].icon
   let showIcon=document.querySelector("#icon")
   showIcon.innerHTML=`<img src="http://openweathermap.org/img/wn/${icon}@2x.png"/src>`;
-}
+  
+ getForecast(response.data.coord)
+  
+ }
 
 function searchCity(city){
-let apiUrl = `${mainUpi}q=${city}&appid=${apiKey}&units=${unit}`;
+let apiUrl = `${mainApi}q=${city}&appid=${apiKey}&units=${unit}`;
 axios.get(apiUrl).then(currentForecast);
 }
+
 
 function showCity(event){
 event.preventDefault()
@@ -93,13 +97,21 @@ searchCity(city);
 function handlePosition(position){
 let lat = position.coords.latitude
 let lon=position.coords.longitude
-let apiUrlLocation = `${mainUpi}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+let apiUrlLocation = `${mainApi}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
 axios.get(apiUrlLocation).then(currentForecast)
 }
 
 function currentLocation(event){
 event.preventDefault()
 navigator.geolocation.getCurrentPosition(handlePosition)
+}
+
+function getForecast(coordinate){
+ let apiKeyFore="f8e6a9e3d6fde87cb38868da460b1371"  
+ let apiUrlForecast=`api.openweathermap.org/data/2.5/onecall?lat=${coordinate.lat}&lon=${coordinate.lon}&appid=${apiKeyFore}&units=${unit}`
+axios.get(apiUrlForecast).then(nextForecast)
+
+  
 }
 
 function showFahrenheitTemp(event){
@@ -119,11 +131,13 @@ function showCelsiumTemp(event){
   temperatureElement.innerHTML=Math.round(celsiumTemperature)
 } 
 
-function nextForecast(){
+function nextForecast(response){
+console.log(response.data.daily)
+
   let forecast=document.querySelector("#nextForecast")
   let insideHTML=`<div class="row">`
 let weekday = [
-                "Monday",
+        "Monday",
         "Tuesday",
         "Wednesday",
              ];
@@ -154,7 +168,7 @@ button.addEventListener("click",currentLocation)
 
 let unit = "metric";
 let apiKey = "78fc98c085614cc01c7a0b894f6604c6";
-let mainUpi = "https://api.openweathermap.org/data/2.5/weather?"
+let mainApi = "https://api.openweathermap.org/data/2.5/weather?"
 
 
 let coverUnit= document.querySelector("#fahrenheitLink")
@@ -166,7 +180,7 @@ recoverUnit.addEventListener("click",showCelsiumTemp)
 let celsiumTemperature=null
 
 searchCity("Prague")
-nextForecast()
+
 
 
 
