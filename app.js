@@ -106,7 +106,6 @@ navigator.geolocation.getCurrentPosition(handlePosition)
 }
 
 function getForecast(coordinate){
-  let apiNewKey="ae7e0abf4061e6a942ac7ca42d64e461"
  let apiKeyFore="f8e6a9e3d6fde87cb38868da460b1371"  
  let apiUrlForecast=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinate.lat}&lon=${coordinate.lon}&appid=${apiKeyFore}&units=${unit}`
 axios.get(apiUrlForecast).then(nextForecast)
@@ -129,28 +128,40 @@ function showCelsiumTemp(event){
   temperatureElement.innerHTML=Math.round(celsiumTemperature)
 } 
 
-function nextForecast(response){
-console.log(response.data.daily)
+function formatDay(timestamp){
+  let date= new Date(timestamp*1000)
+  let day=date.getDay()
+  let days = [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+      ];
+  return days[day]
+}
 
+function nextForecast(response){
+let dailyForecast=response.data.daily
+console.log(dailyForecast)
   let forecast=document.querySelector("#nextForecast")
   let insideHTML=`<div class="row">`
-let weekday = [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-             ];
-  weekday.forEach(function(day){
+
+  dailyForecast.forEach(function(forecastDay,index){
+    if (index<6) {
    insideHTML=insideHTML + `
         <div class="col-2">
           <div>
-          ${day}
+          ${formatDay(forecastDay.dt)}
           </div>
-         <i class="fa-solid fa-cloud-showers-heavy"></i>
-         <div class="tempForecast">4<span> °C</span></div>
+          <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/src>
+          <div class="tempForecast">${Math.round(forecastDay.temp.max)}<span> °C</span></div>
         </div>
-        `;
-      }) ;           
-    insideHTML=insideHTML + `</div>`;
+        `;}
+      }) ;      
+  insideHTML=insideHTML + `</div>`;
   forecast.innerHTML=insideHTML;
 }
  
