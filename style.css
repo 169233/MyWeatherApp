@@ -26,10 +26,6 @@ ul {
   list-style: none;
 }
 
-a {
-  text-decoration: none;
-}
-
 .container {
   display: block;
   max-width: 60%;
@@ -66,16 +62,6 @@ a {
   transition: all 150ms ease-in-out;
 }
 
-.fa-solid.fa-cloud-showers-heavy {
-  font-size: 50px;
-  color: rgb(45, 153, 224);
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.fa-solid.fa-cloud-showers-water {
-  font-size: 50px;
-  color: rgb(45, 153, 224);
-}
 .aLink {
   text-decoration: none;
   color: blue;

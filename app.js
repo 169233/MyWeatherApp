@@ -51,7 +51,7 @@ function currentForecast(response){
   let showTemp = document.querySelector("#celsium")
   showTemp.innerHTML=`${temperature}`
   
-   let headline = response.data.name
+  let headline = response.data.name
   let head=document.querySelector("h1")
   head.innerHTML=`${headline}`
 
