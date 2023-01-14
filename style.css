@@ -30,15 +30,6 @@ a {
   text-decoration: none;
 }
 
-.active {
-  text-decoration: none;
-  cursor: default;
-  color: rgb(0, 0, 0);
-}
-.active:hover {
-  text-decoration: none;
-}
-
 .container {
   display: block;
   max-width: 60%;

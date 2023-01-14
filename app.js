@@ -47,13 +47,11 @@ let showFullDate=document.querySelector("#date")
 showFullDate.innerHTML=`${numberDate}. ${month} ${year}`
 
 function currentForecast(response){
-  let temperature = Math.round(celsiumTemperature)
+  let temperature = Math.round(response.data.main.temp)
   let showTemp = document.querySelector("#celsium")
   showTemp.innerHTML=`${temperature}`
   
-  celsiumTemperature=response.data.main.temp
-
-  let headline = response.data.name
+   let headline = response.data.name
   let head=document.querySelector("h1")
   head.innerHTML=`${headline}`
 
@@ -85,7 +83,6 @@ let apiUrl = `${mainApi}q=${city}&appid=${apiKey}&units=${unit}`;
 axios.get(apiUrl).then(currentForecast);
 }
 
-
 function showCity(event){
 event.preventDefault()
 let input= document.querySelector("#searchCity")
@@ -110,23 +107,6 @@ function getForecast(coordinate){
  let apiUrlForecast=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinate.lat}&lon=${coordinate.lon}&appid=${apiKeyFore}&units=${unit}`
 axios.get(apiUrlForecast).then(nextForecast)
 }
-
-function showFahrenheitTemp(event){
-  event.preventDefault()
-  let temperatureElement=document.querySelector("#celsium")
-  celsiumLink.classList.remove("active")
-  fahrenheitLink.classList.add("active")
-  let changeUnit=(9*celsiumTemperature /5)+32
-  temperatureElement.innerHTML=Math.round(changeUnit)
-  }
-
-function showCelsiumTemp(event){
-  event.preventDefault()
-  celsiumLink.classList.add("active")
-  fahrenheitLink.classList.remove("active")
-  let temperatureElement=document.querySelector("#celsium")
-  temperatureElement.innerHTML=Math.round(celsiumTemperature)
-} 
 
 function formatDay(timestamp){
   let date= new Date(timestamp*1000)
@@ -164,9 +144,6 @@ console.log(dailyForecast)
   insideHTML=insideHTML + `</div>`;
   forecast.innerHTML=insideHTML;
 }
- 
-
-
 
 let form=document.querySelector("#enterCity")
 form.addEventListener("submit",showCity)
@@ -177,15 +154,6 @@ button.addEventListener("click",currentLocation)
 let unit = "metric";
 let apiKey = "78fc98c085614cc01c7a0b894f6604c6";
 let mainApi = "https://api.openweathermap.org/data/2.5/weather?"
-
-
-let coverUnit= document.querySelector("#fahrenheitLink")
-coverUnit.addEventListener("click",showFahrenheitTemp)
-
-let recoverUnit=document.querySelector("#celsiumLink")
-recoverUnit.addEventListener("click",showCelsiumTemp)
-
-let celsiumTemperature=null
 
 searchCity("Prague")
 
