@@ -46,6 +46,11 @@ ul {
   font-size: 48px;
 }
 
+.metric {
+  font-size: 48px;
+  font-weight: normal;
+}
+
 .col {
   text-align: right;
   color: blue;
