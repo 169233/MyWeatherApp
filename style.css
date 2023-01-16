@@ -36,7 +36,7 @@ ul {
   max-width: 60%;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: solid 2px blue;
+  border: solid 2px rgb(15, 85, 15);
   border-radius: 8px;
 }
 
@@ -74,8 +74,13 @@ ul {
 
 .aLink {
   text-decoration: none;
-  color: blue;
+  color: rgb(15, 85, 15);
 }
+
+:hover .aLink {
+  color: rgb(15, 85, 15);
+}
+
 .conecting {
   margin: 0 auto;
   display: block;
