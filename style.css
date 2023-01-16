@@ -27,6 +27,11 @@ ul {
 }
 
 .container {
+  background: radial-gradient(
+    848px at 10% 20%,
+    rgba(174, 231, 165, 0.9) 0%,
+    rgb(181, 205, 154) 90%
+  );
   display: block;
   max-width: 60%;
   margin-top: 20px;
@@ -75,4 +80,8 @@ ul {
   margin: 0 auto;
   display: block;
   max-width: 60%;
+}
+
+.col-2 {
+  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
 }

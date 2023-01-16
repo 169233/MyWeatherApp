@@ -132,7 +132,7 @@ console.log(dailyForecast)
   dailyForecast.forEach(function(forecastDay,index){
     if (index<6) {
    insideHTML=insideHTML + `
-        <div class="col-2">
+        <div class="col-2" >
           <div>
           ${formatDay(forecastDay.dt)}
           </div>
